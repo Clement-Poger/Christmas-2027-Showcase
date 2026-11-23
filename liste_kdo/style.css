@@ -1,0 +1,135 @@
+:root {
+  color-scheme: dark;
+  --forest: #102f27;
+  --forest-deep: #0b241e;
+  --cream: #fff9ed;
+  --gold: #efc873;
+  --muted: #becbc0;
+  font-family: "DM Sans", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse at 50% 28%, rgba(35, 91, 67, .64), transparent 49%),
+    radial-gradient(ellipse at 8% 80%, rgba(93, 34, 37, .22), transparent 35%),
+    var(--forest);
+}
+
+body::before, body::after {
+  position: fixed;
+  z-index: -1;
+  color: rgba(239, 200, 115, .08);
+  font-family: serif;
+  pointer-events: none;
+}
+
+body::before { content: "✳"; top: 13%; left: -52px; font-size: 270px; }
+body::after { content: "✳"; right: -48px; bottom: 3%; font-size: 230px; }
+
+.snow {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  opacity: .44;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 40px 70px, #fff 98%, transparent),
+    radial-gradient(1.5px 1.5px at 150px 160px, #fff 98%, transparent),
+    radial-gradient(1px 1px at 280px 40px, #fff 98%, transparent),
+    radial-gradient(2px 2px at 330px 220px, #fff 98%, transparent);
+  background-size: 360px 270px;
+  animation: snowfall 16s linear infinite;
+}
+
+.page-shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+.topbar { height: 76px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.11); }
+.brand { display: inline-flex; align-items: center; gap: 9px; color: var(--cream); text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: .16em; }
+.brand-mark { color: var(--gold); font-size: 25px; line-height: 1; }
+.brand-light { color: var(--gold); }
+.edition { display: inline-flex; align-items: center; gap: 8px; color: #d3ddcf; font-size: 9px; font-weight: 700; letter-spacing: .15em; }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #e8c269; box-shadow: 0 0 10px #e8c269; animation: pulse 2s infinite; }
+
+.intro { padding: 48px 0 38px; text-align: center; animation: rise-in .7s both; }
+h1 { margin: 14px 0 8px; font-family: "Playfair Display", Georgia, serif; font-size: clamp(45px, 7vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -.04em; }
+h1 span { color: var(--gold); font-style: italic; }
+.how-to { margin: 12px 0 0; color: #d4dfd5; font-size: 13px; }
+
+.gift-section { padding-bottom: 34px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.section-label { color: #e9d8b7; font-size: 10px; font-weight: 700; letter-spacing: .2em; }
+.heading-sparkle { padding: 0 7px; color: var(--gold); font-size: 13px; }
+.progress-label { color: #c1d0c3; font-size: 11px; }
+.progress-label span { color: var(--gold); font-weight: 700; }
+
+.gift-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 13px; }
+.gift-card {
+  --card-delay: 0ms;
+  position: relative;
+  min-height: 230px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 13px;
+  background: #fff9ed;
+  color: #193a2e;
+  box-shadow: 0 8px 26px rgba(0,0,0,.15);
+  animation: card-in .65s both;
+  animation-delay: var(--card-delay);
+}
+.gift-card-wide { grid-column: span 2; }
+.gift-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 14px 16px; text-align: center; }
+.gift-number { position: absolute; top: 13px; left: 14px; color: #809383; font-size: 9px; font-weight: 700; letter-spacing: .14em; }
+.gift-emoji { margin-bottom: 6px; font-size: 33px; filter: drop-shadow(0 3px 3px rgba(57,58,32,.12)); }
+.gift-content h2 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: 18px; line-height: 1.18; }
+.gift-card-wide .gift-content { flex-direction: row; align-content: center; column-gap: 13px; }
+.gift-card-wide .gift-emoji { margin: 0; font-size: 34px; }
+.gift-card-wide .gift-content h2 { text-align: left; }
+.scratch-layer { position: absolute; z-index: 2; inset: 0; display: block; width: 100%; height: 100%; touch-action: none; cursor: crosshair; transition: opacity .65s ease, visibility .65s ease; }
+.gift-card.is-revealed .scratch-layer { visibility: hidden; opacity: 0; pointer-events: none; }
+.gift-card.is-revealed .gift-content { animation: gift-pop .55s both; }
+
+.all-done { margin: 18px 0 0; color: #f0d48e; text-align: center; font-family: "Playfair Display", Georgia, serif; font-size: 17px; animation: rise-in .5s both; }
+.all-done span { padding: 0 5px; }
+footer { display: flex; justify-content: center; gap: 8px; padding: 19px 0 23px; border-top: 1px solid rgba(255,255,255,.1); color: #a7b9aa; font-size: 10px; }
+footer span { color: var(--gold); }
+
+@keyframes snowfall { to { background-position: 0 270px, 150px 430px, 280px 310px, 330px 490px; } }
+@keyframes pulse { 50% { opacity: .45; box-shadow: 0 0 3px #e8c269; } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes card-in { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes gift-pop { 0% { transform: scale(.92); } 65% { transform: scale(1.045); } 100% { transform: scale(1); } }
+
+@media (min-width: 760px) {
+  .gift-card { min-height: 244px; }
+  .gift-card-wide { min-height: 180px; }
+}
+
+@media (max-width: 680px) {
+  .page-shell { width: min(100% - 32px, 520px); }
+  .topbar { height: 64px; }
+  .intro { padding: 40px 0 29px; }
+  .gift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .gift-card { min-height: 205px; }
+  .gift-card-wide { grid-column: span 2; min-height: 158px; }
+  .gift-content h2 { font-size: 16px; }
+}
+
+@media (max-width: 380px) {
+  .page-shell { width: calc(100% - 24px); }
+  .edition { font-size: 8px; }
+  .gift-card { min-height: 190px; }
+  .gift-card-wide { min-height: 150px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
