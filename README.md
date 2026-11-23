@@ -32,7 +32,6 @@ Puis ouvrir <http://localhost:8000> dans le navigateur.
 ├── index.html
 ├── style.css
 ├── script.js
-├── assets/
 └── README.md
 ```
 
