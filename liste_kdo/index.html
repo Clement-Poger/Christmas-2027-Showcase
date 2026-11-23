@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102f27">
+    <meta name="description" content="Gratte les cases pour découvrir les cadeaux de Noël.">
+    <title>La hotte à gratter — Noël</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="snow" aria-hidden="true"></div>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="La hotte de Noël, accueil">
+          <span class="brand-mark" aria-hidden="true">✳</span>
+          <span>LA HOTTE <span class="brand-light">DE NOËL</span></span>
+        </a>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <h1 id="page-title">La hotte <span>à gratter</span></h1>
+          <p class="how-to">Gratte les cases pour découvrir les cadeaux.</p>
+        </section>
+
+        <section class="gift-section" aria-label="Les idées cadeaux à découvrir">
+          <div class="section-heading">
+            <div class="section-label"><span class="heading-sparkle" aria-hidden="true">✳</span> LES SURPRISES <span class="heading-sparkle" aria-hidden="true">✳</span></div>
+            <span class="progress-label" aria-live="polite"><span id="revealed-count">0</span> / 6 révélées</span>
+          </div>
+
+          <div class="gift-grid">
+            <article class="gift-card" style="--card-delay: 0ms">
+              <div class="gift-content">
+                <span class="gift-number">01</span>
+                <h2>Écouteurs</h2>
+              </div>
+              <canvas class="scratch-layer" aria-hidden="true"></canvas>
+            </article>
+
+            <article class="gift-card" style="--card-delay: 90ms">
+              <div class="gift-content">
+                <span class="gift-number">02</span>
+                <h2>Manette<br>pour PC</h2>
+              </div>
+              <canvas class="scratch-layer" aria-hidden="true"></canvas>
+            </article>
+
+            <article class="gift-card" style="--card-delay: 180ms">
+              <div class="gift-content">
+                <span class="gift-number">03</span>
+                <h2>Des BookNoot</h2>
+              </div>
+              <canvas class="scratch-layer" aria-hidden="true"></canvas>
+            </article>
+
+            <article class="gift-card" style="--card-delay: 270ms">
+              <div class="gift-content">
+                <span class="gift-number">04</span>
+                <h2>Casse-têtes</h2>
+              </div>
+              <canvas class="scratch-layer" aria-hidden="true"></canvas>
+            </article>
+
+            <article class="gift-card" style="--card-delay: 360ms">
+              <div class="gift-content">
+                <span class="gift-number">05</span>
+                <h2>Un abonnement<br>HBO de 6 mois</h2>
+              </div>
+              <canvas class="scratch-layer" aria-hidden="true"></canvas>
+            </article>
+
+            <article class="gift-card" style="--card-delay: 450ms">
+              <div class="gift-content">
+                <span class="gift-number">06</span>
+                <h2>Un UGears<br>Maquete en Bois</h2>
+              </div>
+              <canvas class="scratch-layer" aria-hidden="true"></canvas>
+            </article>
+          </div>
+
+          <div class="all-done" id="all-done" aria-live="polite" hidden>
+            Joyeux Noël !
+          </div>
+
+        </section>
+      </main>
+
+      <footer>
+        <span aria-hidden="true">❄</span> © Clement POGER 2026 <span aria-hidden="true">❄</span>
+      </footer>
+    </div>
+  </body>
+</html>
