@@ -99,6 +99,37 @@ h1 span { color: var(--gold); font-style: italic; }
 
 .all-done { margin: 18px 0 0; color: #f0d48e; text-align: center; font-family: "Playfair Display", Georgia, serif; font-size: 17px; animation: rise-in .5s both; }
 .all-done span { padding: 0 5px; }
+
+#reveal-btn {
+  min-height: 30px;
+  padding: 5px 11px;
+  border: 1px solid rgba(255, 249, 237, .48);
+  border-radius: 7px;
+  background: linear-gradient(135deg, #f7d98f 0%, var(--gold) 48%, #d5a94f 100%);
+  box-shadow: 0 8px 18px rgba(8, 31, 24, .28), inset 0 1px rgba(255, 255, 255, .55);
+  color: var(--forest-deep);
+  font: 700 12px/1 "DM Sans", sans-serif;
+  letter-spacing: .08em;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+#reveal-btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+  box-shadow: 0 11px 22px rgba(8, 31, 24, .34), inset 0 1px rgba(255, 255, 255, .65);
+}
+
+#reveal-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(8, 31, 24, .25), inset 0 1px 3px rgba(95, 66, 21, .18);
+}
+
+#reveal-btn:focus-visible {
+  outline: 3px solid rgba(255, 249, 237, .75);
+  outline-offset: 3px;
+}
+
 footer { display: flex; justify-content: center; gap: 8px; padding: 19px 0 23px; border-top: 1px solid rgba(255,255,255,.1); color: #a7b9aa; font-size: 10px; }
 footer span { color: var(--gold); }
 

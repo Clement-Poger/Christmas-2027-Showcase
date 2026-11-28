@@ -119,7 +119,7 @@ function makeScratchable(card) {
     event.preventDefault();
   });
 
-  const stopDrawing = (event) => {
+  const stopDrawing = () => {
     drawing = false;
     previousPoint = null;
     if (revealedArea >= 0.7) finishCard(card);
@@ -130,10 +130,31 @@ function makeScratchable(card) {
 
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function revealall() {
+  const revealButton = document.getElementById("reveal-btn");
+  if (revealButton) {
+    revealButton.hidden = true;
+  }
+  for (const card of cards) {
+    finishCard(card);
+    await sleep(200);
+  }
+}
+
+document.getElementById("reveal-btn").addEventListener("click", revealall);
 cards.forEach((card) => {
+  card.classList.remove("is-revealed");
   paintCover(card.querySelector(".scratch-layer"));
   makeScratchable(card);
 });
+
+revealedCount = 0;
+count.textContent = "0";
+allDoneMessage.hidden = true;
 
 let resizeTimeout;
 window.addEventListener("resize", () => {
@@ -144,4 +165,3 @@ window.addEventListener("resize", () => {
     });
   }, 120);
 });
-
